@@ -58,7 +58,7 @@ Access: `http://localhost:5173`
 
 ---
 
-## 📡 API Endpoints
+## 3. API Endpoints
 
 **Base URL:** `http://localhost:5001/api`
 
@@ -73,7 +73,7 @@ Access: `http://localhost:5173`
 
 ---
 
-## 3. Database Schema
+## 4. Database Schema
 
 **Two MongoDB Databases:**
 - `transfer_db` - User data
@@ -110,7 +110,7 @@ Access: `http://localhost:5173`
 
 ---
 
-## 4. AI Tool Usage Log
+## 5. AI Tool Usage Log
 
 **Tool Used:** GitHub Copilot, Chatgpt for gaining more information on transcation via mongoDB
 
@@ -127,6 +127,7 @@ Access: `http://localhost:5173`
 6. Error handling for 401, 429, and 500 responses
 
 
+
 **Justification:**
 - **Saved 30-40% development time** (~3-4 hours saved)
 - Generated comprehensive error handling
@@ -135,7 +136,36 @@ Access: `http://localhost:5173`
 
 ---
 
-## 5. Author
+## 6. ScreenShots
+Dashboard.
+
+
+<img width="1896" height="921" alt="dashboard" src="https://github.com/user-attachments/assets/5a5a0007-c5b6-4225-80ad-ff7b69e933eb" />
+
+Landing.
+
+<img width="1918" height="921" alt="landing" src="https://github.com/user-attachments/assets/1038aa9b-1d11-4e2c-9d3f-39c4e8cda018" />
+
+Transfer. 
+
+<img width="1917" height="930" alt="transfer" src="https://github.com/user-attachments/assets/84bd33d0-a37f-49a3-900d-3ba4b522a962" />
+
+Login.
+
+<img width="1918" height="925" alt="login" src="https://github.com/user-attachments/assets/266fa521-bdb3-438d-9ae4-64913bcd11c3" />
+
+SignUp.
+
+<img width="1918" height="928" alt="signup" src="https://github.com/user-attachments/assets/068960a8-df54-4969-9965-fd6c036203f2" />
+
+
+## 6. Video Link
+
+Explanation and preview : [Video]()
+
+
+## 6. Author
 
 **Anand** | GitHub: [anualienforce](https://github.com/anualienforce)
+
 
