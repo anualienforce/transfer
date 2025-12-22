@@ -2,6 +2,7 @@ import express from 'express';
 import authRoute from "./routes/authRoute.js"
 import transferRoute from "./routes/transferRoute.js"
 import auditRoute from "./routes/auditRoute.js"
+import requireAuth from "./middleware/authMiddleware.js";
 import { connectDB } from './config/db.js';
 import dotenv from "dotenv";
 import rateLimiter from './middleware/rateLimiter.js';
@@ -13,23 +14,21 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-connectDB()
 
 //middleware
-app.use(express.json())//this will parse the JSON bodies: req.body
+app.use(express.json())
 
 app.use(rateLimiter)
 
-//TODO : create a middleware for auth to access the dab so user will not access without login
-
+//checking middleware
 // app.use((req,res,next) => {
 //     console.log(`${req.method} request for ${req.url} from middleware`)
 //     next();
 // })
 
 app.use("/api/auth", authRoute)
-app.use("/api/transfer", transferRoute)
-app.use("/api/audit", auditRoute)
+app.use("/api/transfer", requireAuth, transferRoute)
+app.use("/api/audit", requireAuth, auditRoute)
 
 // app.get("/api/auth/login", (req,res)=>{
 //     res.status(200).send("Login sucessfully")
@@ -41,6 +40,10 @@ app.use("/api/audit", auditRoute)
 
 
 
+
+
+connectDB().then(()=>{
 app.listen(PORT, ()=>{
     console.log(`Server is running on port ${PORT}`);
+})
 })

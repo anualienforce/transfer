@@ -2,11 +2,11 @@ import Audit from "../models/Audit.js";
 
 export const getAudit = async (req, res) => {
   try {
-    const { senderEmail } = req.body?.senderEmail ? req.body : req.query;
+    const senderEmail = req.user.email;
     if (!senderEmail) {
       return res.status(400).json({
         success: false,
-        message: "senderEmail is required",
+        message: "User email not found in token",
       });
     }
 
@@ -14,7 +14,7 @@ export const getAudit = async (req, res) => {
     if (!audits || audits.length === 0) {
       return res.status(404).json({
         success: false,
-        message: "No audits found for this senderEmail",
+        message: "No audits found for this user",
       });
     }
 

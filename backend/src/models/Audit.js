@@ -1,5 +1,6 @@
 
 import mongoose from "mongoose";
+import { getAuditDb } from "../config/db.js";
 
 const auditSchema = new mongoose.Schema(
     {
@@ -28,7 +29,7 @@ const auditSchema = new mongoose.Schema(
     { timestamps: true, collection: "audits" }
 );
 
-// Use default connection for atomicity with User transactions
-const Audit = mongoose.model("Audit", auditSchema);
+// Bind to audit database via useDb() — same MongoClient, separate database
+const Audit = getAuditDb().model("Audit", auditSchema);
 
 export default Audit;
