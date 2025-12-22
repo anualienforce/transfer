@@ -14,7 +14,7 @@ export const getAudit = async (req, res) => {
     if (!audits || audits.length === 0) {
       return res.status(404).json({
         success: false,
-        message: "No audits found for this user",
+        message: "No audits found!",
       });
     }
 

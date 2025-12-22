@@ -16,6 +16,14 @@ const auditSchema = new mongoose.Schema(
             type: Number,
             required: true,
         },
+        senderBalanceAfter: {
+            type: Number,
+            default: null,
+        },
+        receiverBalanceAfter: {
+            type: Number,
+            default: null,
+        },
         status: {
             type: String,
             enum: ["SUCCESS", "FAILED"],

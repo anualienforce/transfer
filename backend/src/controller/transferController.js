@@ -15,6 +15,10 @@ export const postTransfer = async (req, res)=>{
         throw new Error("Sender or Receiver not found")
     }
 
+    if(senderEmail === receiverEmail){
+        throw new Error("Sender and Receiver cannot be the same")
+    }
+
     if(sender.balance < amount){
         throw new Error("Insufficient balance")
     }
@@ -25,7 +29,14 @@ export const postTransfer = async (req, res)=>{
     await receiver.save({session}); 
 
     //added audit in transaction so if audit gets failed whole transaction will be aborted or vice versa
-    await Audit.create([{ senderEmail, receiverEmail, amount, status: "SUCCESS" }], { session });
+    await Audit.create([{ 
+      senderEmail, 
+      receiverEmail, 
+      amount, 
+      senderBalanceAfter: sender.balance,
+      receiverBalanceAfter: receiver.balance,
+      status: "SUCCESS" 
+    }], { session });
     
     await session.commitTransaction()
     
@@ -36,8 +47,17 @@ export const postTransfer = async (req, res)=>{
    
   } catch (error) {
     await session.abortTransaction()
+    // Fetch current sender balance for failed transaction audit
+    const currentSender = await User.findOne({email: senderEmail});
     await Audit.create(
-      { senderEmail, receiverEmail, amount, status: "FAILED", reason: error.message });
+      { 
+        senderEmail, 
+        receiverEmail, 
+        amount, 
+        senderBalanceAfter: currentSender?.balance || null,
+        status: "FAILED", 
+        reason: error.message 
+      });
     res.status(500).json({
         success: false,
         message: "Transfer failed",
