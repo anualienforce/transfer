@@ -144,7 +144,7 @@ Dashboard.
 
 Landing.
 
-<img width="1918" height="921" alt="landing" src="https://github.com/user-attachments/assets/1038aa9b-1d11-4e2c-9d3f-39c4e8cda018" />
+<img width="1905" height="918" alt="landing" src="https://github.com/user-attachments/assets/42aa778c-91a8-415b-96ae-239d1c6754f1" />
 
 Transfer. 
 
@@ -167,6 +167,7 @@ Explanation and preview : [Video](https://drive.google.com/file/d/1xW42Asx2kmP9i
 ## 8. Author
 
 **Anand** | GitHub: [anualienforce](https://github.com/anualienforce)
+
 
 
 
