@@ -161,12 +161,13 @@ SignUp.
 
 ## 7. Video Link
 
-Explanation and preview : [Video]()
+Explanation and preview : [Video](https://drive.google.com/file/d/1xW42Asx2kmP9iKEhVD9O-aGI1xJylKtd/view?usp=sharing)
 
 
 ## 8. Author
 
 **Anand** | GitHub: [anualienforce](https://github.com/anualienforce)
+
 
 
 
